@@ -1,0 +1,12 @@
+test_id,function,test_method,expected,actual,result,evidence
+HW-01,power_on_reset,press_btnC_and_observe_led0,heartbeat_and_no_unexpected_servo_motion,PASS by project group,PASS,
+HW-02,auto_calibration,keep_relaxed_and_still_for_1_5s,led1_on_led3_off,PASS by project group,PASS,
+HW-03,emg_gripper,alternate_relaxed_and_tense,JC4_opens_and_closes,PASS by project group,PASS,
+HW-04,flex_forearm,drive_flex_high_mid_low,JC3_moves_to_160_stops_and_moves_to_20,PASS by project group,PASS,
+HW-05,gyro_base,rotate_wrist_left_and_right,JC1_responds_and_freezes_after_stop,PASS by project group,PASS,
+HW-06,direction_switch,toggle_sw0_and_repeat_gyro_test,direction_reverses,PASS by project group,PASS,
+HW-07,recalibration,press_btnU,emg_and_gyro_recalibrate,PASS by project group,PASS,
+HW-08,uart_telemetry,run_read_arm_com,valid_18_byte_frames,7497 valid frames; 0 checksum errors; 0 sequence jumps; 60.13 s,PASS,board/measurements/screenshots/uart-terminal.png
+HW-09,servo_power,three_servos_on_external_5v,stable_motion_and_common_ground,PASS by project group,PASS,
+HW-10,pwm_timing,capture_servo_pwm,20_ms_period_0_5_to_2_5_ms_pulse,not measured; no oscilloscope or logic analyzer,N/A,board/measurements/screenshots/vivado-simulation.png
+HW-11,continuous_run,run_for_target_duration,no_reset_and_no_abnormal_motion,30 min; 2 resets; 15 abnormal servo actions; I2C occasional,FAIL,report/design-report.pdf

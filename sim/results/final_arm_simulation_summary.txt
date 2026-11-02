@@ -1,0 +1,25 @@
+Vivado v2025.1
+Source: sim/run_simulation.tcl
+Run date: 2026-11-01
+
+TB_BASYS3_ARM_FINAL_TOP
+PASS EMG and flex calibration completed
+PASS gripper closed: angle=58 pulse=1144 us
+PASS flex JC3 angle=160 pulse=0 us
+TB_BASYS3_ARM_FINAL_TOP: PASS
+
+TB_FLEX_DIRECTION_CONTROLLER
+PASS startup stopped at angle=90
+PASS high jog angle=100
+PASS deadband holds angle=100 with PWM stopped
+PASS low jog angle=90
+PASS upper limit angle=160 with PWM stopped
+PASS lower limit angle=20 with PWM stopped
+TB_FLEX_DIRECTION_CONTROLLER: PASS
+
+TB_GYRO_BASE_CONTROLLER
+PASS confirmation and positive motion target=91
+PASS sustained motion target=96
+PASS deadband freezes target=96
+PASS negative motion target=95
+TB_GYRO_BASE_CONTROLLER: PASS

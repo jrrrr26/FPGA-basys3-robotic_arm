@@ -1,0 +1,25 @@
+signal,board_pin,connector_pin,direction,notes
+clk,W5,,input,100 MHz system clock
+btnC,U18,,input,Global reset
+btnU,T18,,input,Recalibrate EMG baseline and gyro bias
+sw0,V17,,input,Gyro direction invert
+uart_txd,A18,,output,115200 8N1
+servo_jc1_pwm,K17,JC1,output,Base servo
+servo_jc3_pwm,N17,JC3,output,Forearm servo
+servo_jc4_pwm,P18,JC4,output,Gripper servo
+servo_jc2_unused,M18,JC2,none,Unused
+i2c_sda,A14,JB1,inout,MPU6050 SDA
+i2c_scl,A16,JB2,output,MPU6050 SCL
+mpu6050_vcc,,JB6,power,3.3 V
+mpu6050_gnd,,JB5,power,Common ground
+mpu6050_ad0,,JB5,input,Tie to GND for address 0x68
+adc_cs_n,J1,JA1,output,Pmod AD1 CS
+adc_d0,L2,JA2,input,Pmod AD1 D0
+adc_d1,J2,JA3,input,Pmod AD1 D1
+adc_sclk,G2,JA4,output,Pmod AD1 SCLK
+adc_gnd,,JA5,power,Common ground
+adc_3v3,,JA6,power,3.3 V
+myoware_env,,AD1 A0,input,MyoWare 2.0 ENV
+flex_divider,,AD1 A1,input,Flex sensor divider midpoint
+servo_5v,,external,power,Independent regulated 5 V supply
+servo_gnd,,external,power,Must be common with Basys 3 GND

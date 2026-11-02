@@ -1,0 +1,11 @@
+test_id,metric,test_condition,trials,success_count,value,value_max,unit,evidence,notes
+Q-01,EMG gripper repeated success,relaxed-to-tense-to-relaxed,10,10,,,count,,
+Q-02,flex forearm high-direction success,bend high and return to middle,10,10,,,count,,
+Q-03,flex forearm low-direction success,bend low and return to middle,10,10,,,count,,
+Q-04,gyro base left-turn success,rotate wrist left and stop,10,7,,,count,,
+Q-05,gyro base right-turn success,rotate wrist right and stop,10,8,,,count,,
+Q-06,gyro stop-freeze success,stop wrist and observe base,10,8,,,count,,
+Q-07,UART valid frames,actual 60.13-second capture,,,7497,,frames,board/measurements/screenshots/uart-terminal.png,
+Q-08,UART checksum errors,actual 60.13-second capture,,,0,,count,board/measurements/screenshots/uart-terminal.png,
+Q-09,UART sequence jumps,actual 60.13-second capture,,,0,,count,board/measurements/screenshots/uart-terminal.png,
+Q-10,continuous run time,loaded arm endurance test,,,30,,minutes,report/design-report.pdf,2 resets and 15 abnormal servo actions

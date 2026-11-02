@@ -1,0 +1,2 @@
+version,date,vivado,wns_ns,whs_ns,failing_endpoints,lut,lut_total,ff,ff_total,dsp,dsp_total,bram,bram_total,drc_errors,drc_warnings,bitstream_bytes,bitstream_sha256,evidence
+1.0.0,2026-11-01,2025.1,1.048,0.065,0,1448,20800,971,41600,6,90,0,50,0,18,2192144,D489C8CF15FD0207EB3866C9796E268C7C53CCDDDA10FFFEC5AE7690FEAC56AA,build/reports/timing_summary.rpt;build/reports/utilization.rpt;build/reports/drc.rpt

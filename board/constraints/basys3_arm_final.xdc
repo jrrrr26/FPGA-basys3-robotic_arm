@@ -1,0 +1,77 @@
+## Basys 3 integrated sensor-to-arm controller.
+
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+
+set_property PACKAGE_PIN W5 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+create_clock -add -name sys_clk_pin -period 10.000 -waveform {0 5} [get_ports clk]
+
+## btnC resets; btnU restarts all sensor calibration.
+set_property PACKAGE_PIN U18 [get_ports btnC]
+set_property PACKAGE_PIN T18 [get_ports btnU]
+set_property PACKAGE_PIN V17 [get_ports sw0]
+set_property IOSTANDARD LVCMOS33 [get_ports {btnC btnU}]
+set_property IOSTANDARD LVCMOS33 [get_ports sw0]
+set_property PULLDOWN true [get_ports {btnC btnU}]
+
+## Board LEDs.
+set_property -dict { PACKAGE_PIN U16 IOSTANDARD LVCMOS33 } [get_ports {led[0]}]
+set_property -dict { PACKAGE_PIN E19 IOSTANDARD LVCMOS33 } [get_ports {led[1]}]
+set_property -dict { PACKAGE_PIN U19 IOSTANDARD LVCMOS33 } [get_ports {led[2]}]
+set_property -dict { PACKAGE_PIN V19 IOSTANDARD LVCMOS33 } [get_ports {led[3]}]
+set_property -dict { PACKAGE_PIN W18 IOSTANDARD LVCMOS33 } [get_ports {led[4]}]
+set_property -dict { PACKAGE_PIN U15 IOSTANDARD LVCMOS33 } [get_ports {led[5]}]
+set_property -dict { PACKAGE_PIN U14 IOSTANDARD LVCMOS33 } [get_ports {led[6]}]
+set_property -dict { PACKAGE_PIN V14 IOSTANDARD LVCMOS33 } [get_ports {led[7]}]
+set_property -dict { PACKAGE_PIN V13 IOSTANDARD LVCMOS33 } [get_ports {led[8]}]
+set_property -dict { PACKAGE_PIN V3  IOSTANDARD LVCMOS33 } [get_ports {led[9]}]
+set_property -dict { PACKAGE_PIN W3  IOSTANDARD LVCMOS33 } [get_ports {led[10]}]
+set_property -dict { PACKAGE_PIN U3  IOSTANDARD LVCMOS33 } [get_ports {led[11]}]
+set_property -dict { PACKAGE_PIN P3  IOSTANDARD LVCMOS33 } [get_ports {led[12]}]
+set_property -dict { PACKAGE_PIN N3  IOSTANDARD LVCMOS33 } [get_ports {led[13]}]
+set_property -dict { PACKAGE_PIN P1  IOSTANDARD LVCMOS33 } [get_ports {led[14]}]
+set_property -dict { PACKAGE_PIN L1  IOSTANDARD LVCMOS33 } [get_ports {led[15]}]
+
+## USB-UART.
+set_property PACKAGE_PIN A18 [get_ports uart_txd]
+set_property IOSTANDARD LVCMOS33 [get_ports uart_txd]
+
+## Servo outputs. JC2 is unused.
+set_property PACKAGE_PIN K17 [get_ports servo_jc1_pwm]
+set_property PACKAGE_PIN N17 [get_ports servo_jc3_pwm]
+set_property PACKAGE_PIN P18 [get_ports servo_jc4_pwm]
+set_property IOSTANDARD LVCMOS33 \
+    [get_ports {servo_jc1_pwm servo_jc3_pwm servo_jc4_pwm}]
+
+## MPU6050 on JB.
+set_property PACKAGE_PIN A14 [get_ports i2c_sda]
+set_property PACKAGE_PIN A16 [get_ports i2c_scl]
+set_property IOSTANDARD LVCMOS33 [get_ports {i2c_sda i2c_scl}]
+set_property PULLUP true [get_ports i2c_sda]
+
+## Four-digit common-anode seven-segment display.
+set_property -dict { PACKAGE_PIN W7 IOSTANDARD LVCMOS33 } [get_ports {seg[0]}]
+set_property -dict { PACKAGE_PIN W6 IOSTANDARD LVCMOS33 } [get_ports {seg[1]}]
+set_property -dict { PACKAGE_PIN U8 IOSTANDARD LVCMOS33 } [get_ports {seg[2]}]
+set_property -dict { PACKAGE_PIN V8 IOSTANDARD LVCMOS33 } [get_ports {seg[3]}]
+set_property -dict { PACKAGE_PIN U5 IOSTANDARD LVCMOS33 } [get_ports {seg[4]}]
+set_property -dict { PACKAGE_PIN V5 IOSTANDARD LVCMOS33 } [get_ports {seg[5]}]
+set_property -dict { PACKAGE_PIN U7 IOSTANDARD LVCMOS33 } [get_ports {seg[6]}]
+set_property -dict { PACKAGE_PIN V7 IOSTANDARD LVCMOS33 } [get_ports dp]
+set_property -dict { PACKAGE_PIN U2 IOSTANDARD LVCMOS33 } [get_ports {an[0]}]
+set_property -dict { PACKAGE_PIN U4 IOSTANDARD LVCMOS33 } [get_ports {an[1]}]
+set_property -dict { PACKAGE_PIN V4 IOSTANDARD LVCMOS33 } [get_ports {an[2]}]
+set_property -dict { PACKAGE_PIN W4 IOSTANDARD LVCMOS33 } [get_ports {an[3]}]
+
+## Pmod AD1 on JA: A0=MyoWare ENV, A1=flex sensor.
+set_property PACKAGE_PIN J1 [get_ports adc_cs_n]
+set_property PACKAGE_PIN L2 [get_ports adc_d0]
+set_property PACKAGE_PIN J2 [get_ports adc_d1]
+set_property PACKAGE_PIN G2 [get_ports adc_sclk]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_cs_n adc_sclk adc_d0 adc_d1}]
+set_property PULLUP true [get_ports {adc_d0 adc_d1}]
+
+set_false_path -from [get_ports {adc_d0 adc_d1}]
+set_false_path -from [get_ports i2c_sda]
+set_false_path -from [get_ports {btnC btnU}]
